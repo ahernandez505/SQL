@@ -1,0 +1,29 @@
+--Create a Coffee Shop Database 
+
+CREATE TABLE Coffee_Shop (id INTEGER PRIMARY KEY, name TEXT, price INTEGER, amount_sold_today INTEGER, type TEXT);  
+
+INSERT INTO Coffee_Shop VALUES (1, "Hot Coffee", 4.5, 12, "Drink");
+INSERT INTO Coffee_Shop VALUES (2, "Vanilla Iced Coffee", 5, 14, "Drink");
+INSERT INTO Coffee_Shop VALUES (3, "Caramel Iced Coffee", 5, 16, "Drink");
+INSERT INTO Coffee_Shop VALUES (4, "Latte", 5.5, 32, "Drink");
+INSERT INTO Coffee_Shop VALUES (5, "Americano", 5.5, 20, "Drink");
+INSERT INTO Coffee_Shop VALUES (6, "Coffee Shake", 6, 25, "Drink");
+INSERT INTO Coffee_Shop VALUES (7, "Extra Espresso Shot", 3, 31, "Drink");
+INSERT INTO Coffee_Shop VALUES (8, "Pumpkin Spice Latte", 6.5, 28, "Limited");
+INSERT INTO Coffee_Shop VALUES (9, "Pumpkin Spice Coffee Shake",7, 14, "Limited");
+INSERT INTO Coffee_Shop VALUES (10, "Pumkin Spice Iced Coffee", 6, 13, "Limited");
+INSERT INTO Coffee_Shop VALUES (11, "Bagel with Cream Cheese", 3, 30, "Bakery");
+INSERT INTO Coffee_Shop VALUES (12, "Vegan/GF Bagel with Cream Cheese", 5, 15, "Bakery");
+INSERT INTO Coffee_Shop VALUES (13, "Donut", 3.5, 28, "Bakery");
+INSERT INTO Coffee_Shop VALUES (14, "Vegan/GF Donut", 4.5, 10, "Bakery");
+INSERT INTO Coffee_Shop VALUES (15, "Pumpkin Spice Donut", 4.5, 22, "Limited");
+INSERT INTO Coffee_Shop VALUES (16, "Vegan/GF Pumpkin Spice Donut", 5.5, 19, "Limited");
+
+--Display the Database ordered by price.
+SELECT * FROM Coffee_Shop ORDER BY price DESC;
+
+--What is the total amount sold of Pumpkin Spice Limited items?
+SELECT SUM(amount_sold_today)FROM Coffee_Shop WHERE type='Limited';
+
+--What is the total amount sold today of each different item? 
+SELECT name, SUM(amount_sold_today) FROM Coffee_Shop GROUP BY name;
